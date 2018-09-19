@@ -7,6 +7,7 @@ package personaltwitterfeed;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,16 @@ public class PersonalTwitterFeed {
     /**
      * @param args the command line arguments
      */
+  
+    public static String Date(){
+          String time = " dd MMMMM yyyy HH:mm:ss";
+      SimpleDateFormat simpleDateFormat = 
+              new SimpleDateFormat(time);
+      String stamp = simpleDateFormat.format(new Date());
+       return stamp; 
+    }
     public static void main(String[] args) {
+      
         String[] tweets = new String[MAX_NUMBER_TWEETS];
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to your personal Twitter!");
@@ -39,7 +49,7 @@ public class PersonalTwitterFeed {
             
             System.out.println(tweeterName + "'s Personal Twitter Feed:");
             for(int i = 0; i < numTweets; i++) {
-                System.out.println("- " + tweets[i]);
+                System.out.println("- " + tweets[i] + Date());
             }
             
             System.out.println();
@@ -53,5 +63,6 @@ public class PersonalTwitterFeed {
         
         System.out.println("Your twitter feed is full");
     }
-    
+
 }
+ 
