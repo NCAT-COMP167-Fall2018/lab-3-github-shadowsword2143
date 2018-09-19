@@ -28,11 +28,12 @@ public class PersonalTwitterFeed {
               new SimpleDateFormat(time);
       String stamp = simpleDateFormat.format(new Date());
        return stamp; 
+
     }
     public static void main(String[] args) {
       
         String[] tweets = new String[MAX_NUMBER_TWEETS];
-        Scanner keyboard = new Scanner(System.in);
+         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to your personal Twitter!");
         System.out.println("What's your name, tweeter?");
         
@@ -40,10 +41,16 @@ public class PersonalTwitterFeed {
         
         System.out.println("Nice to meet you " + tweeterName + "!");
         System.out.println("Enter your tweets and I will add them to your timeline!");
-        
-        int numTweets = 0;
+        newTweet(tweets, tweeterName);
+      
+    }
+     public static void newTweet(String[] tweets,String tweeterName){
+          Scanner keyboard = new Scanner(System.in);
+           tweets = new String[MAX_NUMBER_TWEETS];
+            int numTweets = 0;
         
         while(numTweets < (MAX_NUMBER_TWEETS - 1)) {
+
             tweets[numTweets] = keyboard.nextLine();
             numTweets++;
             
@@ -62,7 +69,10 @@ public class PersonalTwitterFeed {
         }
         
         System.out.println("Your twitter feed is full");
+ 
+
     }
+
 
 }
  
